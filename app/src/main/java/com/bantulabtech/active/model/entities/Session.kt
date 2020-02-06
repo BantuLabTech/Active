@@ -17,5 +17,7 @@ data class Session(
     val startDate: Date,
     @ColumnInfo(name = "end_date")
     val endDate: Date,
-    val type: String
+    val type: String,
+    val classId: UUID,
+    val subjectId: UUID
 )
