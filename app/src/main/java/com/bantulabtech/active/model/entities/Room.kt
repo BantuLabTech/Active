@@ -14,8 +14,8 @@ data class Room(
     val name: String,
     @ColumnInfo(name = "block_id")
     val blockId: UUID,
-    @Embedded
-    val size: RoomSize,
+    val width: Float,
+    val length: Float,
     @Embedded
     val location: Location,
     val type: String
