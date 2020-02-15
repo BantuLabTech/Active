@@ -11,6 +11,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bantulabtech.active.R
+import com.google.android.material.navigation.NavigationView
 
 class HomeActivity : AppCompatActivity() {
     lateinit var navController: NavController
@@ -19,6 +20,7 @@ class HomeActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_home)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        val drawerNavView: NavigationView = findViewById(R.id.drawer_nav_view)
 
         navController = findNavController(R.id.home_nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
@@ -27,9 +29,11 @@ class HomeActivity : AppCompatActivity() {
             setOf(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
             )
+
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        drawerNavView.setupWithNavController(navController)
     }
 
     override fun onBackPressed() {
