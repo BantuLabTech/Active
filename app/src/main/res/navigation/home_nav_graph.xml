@@ -7,8 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.bantulabtech.active.ui.login.LoginFragment"
-        android:label="LoginFragment" >
+        android:name="com.bantulabtech.active.ui.login.LoginFragment">
         <action
             android:id="@+id/action_loginFragment_to_navigation_home"
             app:destination="@id/navigation" />

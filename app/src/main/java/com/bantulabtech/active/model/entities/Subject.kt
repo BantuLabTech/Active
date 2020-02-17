@@ -1,4 +1,4 @@
 package com.bantulabtech.active.model.entities
 
-class Supervisor {
+class Subject {
 }
