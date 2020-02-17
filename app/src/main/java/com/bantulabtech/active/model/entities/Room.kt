@@ -7,7 +7,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
 
-@Entity(tableName = "room")
+@Entity(tableName = "rooms")
 data class Room(
     @PrimaryKey
     val id: UUID,
