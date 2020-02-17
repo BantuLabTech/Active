@@ -8,9 +8,11 @@
     android:paddingTop="?attr/actionBarSize"
     android:fitsSystemWindows="true"
     tools:context=".ui.HomeActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
     <fragment
         android:id="@+id/home_nav_host_fragment"
@@ -23,8 +25,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/home_nav_graph" />
-
-
 
     <!-- Container for the contents of a BottomNavigationView-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -39,6 +39,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/drawer_nav_view"
@@ -48,4 +49,5 @@
         android:fitsSystemWindows="true"
         app:menu="@menu/menu_main"
         />
+
 </androidx.drawerlayout.widget.DrawerLayout>
