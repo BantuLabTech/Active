@@ -14,7 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.bantulabtech.active.R
 import com.google.android.material.navigation.NavigationView
 
-class HomeActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     lateinit var navController: NavController
     lateinit var bottomNavigationView: BottomNavigationView
     lateinit var drawerNavigationView: NavigationView
@@ -22,7 +22,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_main)
         bottomNavigationView = findViewById(R.id.nav_view)
         drawerNavigationView = findViewById(R.id.drawer_nav_view)
         drawerLayout = findViewById(R.id.container)

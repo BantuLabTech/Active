@@ -1,4 +1,4 @@
-package com.bantulabtech.active
+package com.bantulabtech.active.helpers
 
 import com.google.android.gms.maps.model.LatLng
 import java.util.*
