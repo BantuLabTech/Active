@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 
 import com.bantulabtech.active.R
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -26,6 +27,7 @@ class LoginFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         // TODO: Use the ViewModel
         buttonLogin.setOnClickListener{
+            findNavController().navigate(R.id.action_loginFragment_to_navigation)
 
         }
     }

@@ -1,4 +1,4 @@
-package com.bantulabtech.active.helpers
+package com.bantulabtech.active.model.entities
 
 data class PhysicalDimension (
     var width: Float,

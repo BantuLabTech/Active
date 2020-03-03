@@ -6,7 +6,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import com.bantulabtech.active.helpers.PhysicalDimension
 import com.bantulabtech.active.helpers.SchoolAccreditationLevel
 import com.bantulabtech.active.helpers.SchoolScholarGenderMode
 import com.bantulabtech.active.helpers.SchoolLearningMode
@@ -29,7 +28,7 @@ import kotlin.collections.ArrayList
 )
 data class School (
     @PrimaryKey var id: UUID,
-    @ColumnInfo(name = "school_id") var schoolId: String,
+    @ColumnInfo(name = "school_code") var schoolCode: String,
     @ColumnInfo(name = "school_name") @NonNull var schoolName: String,
     @ColumnInfo(name = "school_accreditation_levels")
     @NonNull var schoolAccreditationLevels: ArrayList<SchoolAccreditationLevel>,

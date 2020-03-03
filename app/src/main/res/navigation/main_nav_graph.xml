@@ -13,7 +13,10 @@
             app:destination="@id/navigation" />
         <action
             android:id="@+id/action_loginFragment_to_navigation"
-            app:destination="@id/navigation" />
+            app:destination="@id/navigation"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <action
         android:id="@+id/action_global_loginFragment"
