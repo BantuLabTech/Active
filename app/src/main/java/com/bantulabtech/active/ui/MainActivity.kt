@@ -14,9 +14,11 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bantulabtech.active.R
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var navController: NavController
@@ -24,47 +26,30 @@ class MainActivity : AppCompatActivity() {
     lateinit var drawerNavigationView: NavigationView
     lateinit var drawerLayout: DrawerLayout
     lateinit var appBarConfiguration: AppBarConfiguration
-//    lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
+
         bottomNavigationView = findViewById(R.id.nav_view)
         drawerNavigationView = findViewById(R.id.drawer_nav_view)
         drawerLayout = findViewById(R.id.container)
-//        toolbar =  findViewById(R.id.toolbar)
-
-//        setSupportActionBar(toolbar)
-
-
         navController = findNavController(this, R.id.home_nav_host_fragment)
-        //note appBarConfig can also be setup with below settings
-        // appBarConfiguration = AppBarConfiguration(navController.graph)
-         appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.loginFragment, R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-            )
+        //AppBarConfiguration(navControler.graph, drawerLayout
+        appBarConfiguration = AppBarConfiguration(
+            setOf(R.id.action_global_navigation_home,R.id.action_global_navigation_dashboard, R.id.action_global_navigation_notifications),
+             drawerLayout
         )
-
-        setupActionBarWithNavController(this, navController, appBarConfiguration)
+        setupActionBarWithNavController(navController, appBarConfiguration)
         setupWithNavController(bottomNavigationView, navController)
         drawerNavigationView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener{_,destination,_ ->
             hideBottomNavBar(destination)
             hideDrawerNavBar(destination)
-//            hideToolBar(destination)
+            hideToolBar(destination)
         }
-        val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, 0, 0
-        )
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
     fun hideBottomNavBar(destination: NavDestination){
@@ -85,12 +70,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    fun hideToolBar(destination: NavDestination){
-//        if(destination.id == R.id.loginFragment){
-//            toolbar.visibility = View.GONE
-//        }
-//        else{
-//            toolbar.visibility = View.VISIBLE
-//        }
-//    }
+    fun hideToolBar(destination: NavDestination){
+        if(destination.id == R.id.loginFragment){
+            toolbar.visibility = View.GONE
+        }
+        else{
+            toolbar.visibility = View.VISIBLE
+        }
+    }
 }
