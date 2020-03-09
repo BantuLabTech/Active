@@ -43,13 +43,23 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         setupWithNavController(bottomNavigationView, navController)
+
         drawerNavigationView.setupWithNavController(navController)
+        val toggle = ActionBarDrawerToggle(
+            this, drawerLayout, toolbar, 0, 0
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
 
         navController.addOnDestinationChangedListener{_,destination,_ ->
             hideBottomNavBar(destination)
             hideDrawerNavBar(destination)
             hideToolBar(destination)
         }
+    }
+
+    override fun onNavigateUp(): Boolean {
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
     fun hideBottomNavBar(destination: NavDestination){
