@@ -28,7 +28,12 @@
             android:id="@+id/navigation_home"
             android:name="com.bantulabtech.active.ui.home.HomeFragment"
             android:label="@string/title_home"
-            tools:layout="@layout/fragment_home" />
+            tools:layout="@layout/fragment_home" >
+            <action
+                android:id="@+id/action_navigation_home_to_classSessionFragment"
+                app:destination="@id/classSessionFragment"
+                app:launchSingleTop="true" />
+        </fragment>
         <fragment
             android:id="@+id/navigation_notifications"
             android:name="com.bantulabtech.active.ui.notifications.NotificationsFragment"
@@ -57,5 +62,9 @@
             app:launchSingleTop="true"
             app:popUpTo="@id/navigation_home"
             app:popUpToInclusive="true" />
+        <fragment
+            android:id="@+id/classSessionFragment"
+            android:name="com.bantulabtech.active.ui.classsession.ClassSessionFragment"
+            android:label="ClassSessionFragment" />
     </navigation>
 </navigation>
